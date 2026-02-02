@@ -220,3 +220,20 @@ p { margin: 0; color: var(--muted); line-height: 1.6; }
   .grid { grid-template-columns: 1fr; }
   .nav { display: none; }
 }
+
+.micro {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.section__lead {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.card__text {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
