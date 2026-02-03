@@ -17,9 +17,32 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
-  background: radial-gradient(900px 500px at 20% 10%, rgba(91,58,239,0.35), transparent 60%),
-              radial-gradient(900px 500px at 80% 20%, rgba(252,77,155,0.25), transparent 60%),
-              linear-gradient(180deg, var(--bg), var(--bg2));
+
+  /* Базовый фон без локальных "швов" */
+  background: linear-gradient(180deg, var(--bg), var(--bg2));
+  position: relative;
+}
+
+/* Глобальные плавные "glow" слои на весь сайт — без разрывов между секциями */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    radial-gradient(1100px 600px at 18% 8%, rgba(91,58,239,0.38), transparent 62%),
+    radial-gradient(900px 520px at 86% 18%, rgba(252,77,155,0.28), transparent 62%);
+}
+
+body::after {
+  background:
+    radial-gradient(900px 520px at 25% 78%, rgba(91,58,239,0.22), transparent 62%),
+    radial-gradient(1100px 600px at 82% 82%, rgba(252,77,155,0.18), transparent 62%);
 }
 
 html {
@@ -163,26 +186,8 @@ section[id] {
 }
 
 .section--alt {
-  position: relative;
-  overflow: hidden;
-
-  /* Плавный фон на весь блок (без "серой шапки") */
-  background:
-    radial-gradient(900px 420px at 15% 0%, rgba(91,58,239,0.22), transparent 62%),
-    radial-gradient(900px 420px at 85% 10%, rgba(252,77,155,0.16), transparent 62%),
-    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
-}
-
-/* Мягкое "перетекание" сверху, чтобы не было визуального обрыва */
-.section--alt::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -44px;
-  height: 44px;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(91,58,239,0.14));
+  /* Никаких локальных градиентов — фон единый, глобальный */
+  background: rgba(255,255,255,0.02);
 }
 
 h2 { margin: 0 0 18px; font-size: 28px; }
