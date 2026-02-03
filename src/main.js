@@ -26,7 +26,7 @@ function Hero() {
     <section class="hero">
       <div class="container hero__inner">
         <div class="hero__content">
-          <h1>Запускайте бесплатные розыгрыши в Telegram</h1>
+          <h1>Запускайте бесплатные розыгрыши<br>в Telegram</h1>
 
           <p class="lead">
             PrizeMe — бесплатный сервис для каналов и групп для создания и проведения розыгрышей
