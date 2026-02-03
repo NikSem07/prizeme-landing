@@ -9,9 +9,8 @@ document.querySelector("#app").innerHTML = `
         <nav class="nav">
           <a href="#how" class="nav__link">Как работает</a>
           <a href="#who" class="nav__link">Кому подойдёт</a>
-          <a href="#why" class="nav__link">Почему PrizeMe</a>
           <a href="#mechanics" class="nav__link">Механики</a>
-          <a href="#faq" class="nav__link">FAQ</a>
+          <a href="#why" class="nav__link">Преимущества</a>
         </nav>
         <a class="btn btn--ghost" href="${BOT_URL}" target="_blank" rel="noopener">
           Открыть в Telegram
