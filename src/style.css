@@ -82,17 +82,14 @@ main,
   z-index: 1;
 }
 
-/* Header должен сохранять position: sticky/fixed — поэтому НЕ трогаем position */
 .header {
-  z-index: 1000; /* поверх glow и контента */
-}
-
-.header {
-  position: static; /* desktop: едет вместе со страницей */
+  position: sticky;
+  top: 0;
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   background: rgba(11, 11, 16, 0.55);
   border-bottom: 1px solid var(--line);
-  z-index: 10;
+  z-index: 1000;
 }
 
 .header__inner {
