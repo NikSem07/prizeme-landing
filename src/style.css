@@ -83,8 +83,11 @@ main,
 }
 
 .header {
-  position: sticky;
+  position: fixed;   /* <-- ключевое: работает везде, sticky не ломается об overflow/transform */
+  left: 0;
+  right: 0;
   top: 0;
+
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   background: rgba(11, 11, 16, 0.55);
@@ -98,6 +101,10 @@ main,
   justify-content: space-between;
   height: 64px;
   gap: 16px;
+}
+
+main {
+  padding-top: var(--header-h);
 }
 
 .brand {
@@ -225,7 +232,7 @@ main,
 
 /* Чтобы якорные переходы не прятали заголовок под sticky header */
 section[id] {
-  scroll-margin-top: 64px; /* 64px header + запас, если нужен */
+  scroll-margin-top: calc(var(--header-h))
 }
 
 .section--alt {
