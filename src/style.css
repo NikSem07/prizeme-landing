@@ -139,7 +139,26 @@ a { color: inherit; text-decoration: none; }
 }
 
 .section--alt {
-  background: rgba(255,255,255,0.03);
+  position: relative;
+  overflow: hidden;
+
+  /* Плавный фон на весь блок (без "серой шапки") */
+  background:
+    radial-gradient(900px 420px at 15% 0%, rgba(91,58,239,0.22), transparent 62%),
+    radial-gradient(900px 420px at 85% 10%, rgba(252,77,155,0.16), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+}
+
+/* Мягкое "перетекание" сверху, чтобы не было визуального обрыва */
+.section--alt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -44px;
+  height: 44px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(91,58,239,0.14));
 }
 
 h2 { margin: 0 0 18px; font-size: 28px; }

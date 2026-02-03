@@ -10,6 +10,8 @@ document.querySelector("#app").innerHTML = `
           <a href="#how" class="nav__link">Как работает</a>
           <a href="#who" class="nav__link">Кому подойдёт</a>
           <a href="#why" class="nav__link">Почему PrizeMe</a>
+          <a href="#mechanics" class="nav__link">Механики</a>
+          <a href="#faq" class="nav__link">FAQ</a>
         </nav>
         <a class="btn btn--ghost" href="${BOT_URL}" target="_blank" rel="noopener">
           Открыть в Telegram
@@ -36,17 +38,6 @@ document.querySelector("#app").innerHTML = `
                 Как это работает
               </a>
             </div>
-
-            <div class="micro">
-              Быстрый запуск розыгрышей • Доступны продвинутые механики
-            </div>
-
-            <div class="badges">
-              <div class="badge">Участие по кнопке</div>
-              <div class="badge">Анти-фрод механики</div>
-              <div class="badge">Авто-результаты</div>
-            </div>
-          </div>
 
           <div class="hero__card">
             <div class="card">
@@ -126,6 +117,39 @@ document.querySelector("#app").innerHTML = `
         </div>
       </section>
 
+      <!-- H2: MECHANICS -->
+      <section id="mechanics" class="section section--alt">
+        <div class="container">
+          <h2>Механики PrizeMe</h2>
+          <div class="grid">
+            <div class="box">
+              <h3>Создание кастомных розыгрышей и запуск в своих каналах / группах</h3>
+              <p>Гибкие настройки, описание и условия — всё внутри бота</p>
+            </div>
+            <div class="box">
+              <h3>Автоматическое и прозрачное определение победителей</h3>
+              <p>Победители выбираются автоматически по завершению розыгрыша</p>
+            </div>
+            <div class="box">
+              <h3>Уведомление участников о завершении розыгрыша</h3>
+              <p>Участники получают результат — без ручных сообщений</p>
+            </div>
+            <div class="box">
+              <h3>Mini-app внутри Telegram</h3>
+              <p>Участие и проверка условий в удобном интерфейсе</p>
+            </div>
+            <div class="box">
+              <h3>Расширенная аналитика</h3>
+              <p>Отслеживание вовлечения, участия и эффективности механик</p>
+            </div>
+            <div class="box">
+              <h3>Защита от накрутки и ботов</h3>
+              <p>Контроль условий, анти-фрод и фильтрация подозрительной активности</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- H2: WHY -->
       <section id="why" class="section">
         <div class="container">
@@ -157,6 +181,48 @@ document.querySelector("#app").innerHTML = `
             <a class="btn btn--primary" href="${BOT_URL}" target="_blank" rel="noopener">
               Запустить розыгрыш
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- H2: FAQ -->
+      <section id="faq" class="section">
+        <div class="container">
+          <h2>FAQ</h2>
+          <p class="section__lead">
+            Ответы на частые вопросы о запуске розыгрышей в PrizeMe
+          </p>
+
+          <div class="faq">
+            <details>
+              <summary>PrizeMe бесплатный?</summary>
+              <p>Да. Базовый функционал доступен бесплатно. Премиум-возможности добавляют расширенные опции и аналитику.</p>
+            </details>
+
+            <details>
+              <summary>Что нужно, чтобы запустить розыгрыш?</summary>
+              <p>Достаточно открыть бота, создать розыгрыш и подключить свой канал или группу с правами администратора.</p>
+            </details>
+
+            <details>
+              <summary>Как определяется победитель?</summary>
+              <p>Победители определяются автоматически по правилам розыгрыша после завершения. Процесс прозрачен и не требует ручных действий.</p>
+            </details>
+
+            <details>
+              <summary>Можно запускать розыгрыши в группах и чатах?</summary>
+              <p>Да. PrizeMe работает и для Telegram-каналов, и для групп/сообществ.</p>
+            </details>
+
+            <details>
+              <summary>Как вы боретесь с накруткой и ботами?</summary>
+              <p>PrizeMe проверяет условия участия, использует анти-фрод механики и блокирует подозрительную активность.</p>
+            </details>
+
+            <details>
+              <summary>Где смотреть результаты и аналитику?</summary>
+              <p>Результаты формируются автоматически. Для продвинутого анализа предусмотрена расширенная аналитика (доступность зависит от функционала/тарифа).</p>
+            </details>
           </div>
         </div>
       </section>
