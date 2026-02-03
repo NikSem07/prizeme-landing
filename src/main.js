@@ -38,20 +38,6 @@ document.querySelector("#app").innerHTML = `
                 Как это работает
               </a>
             </div>
-
-          <div class="hero__card">
-            <div class="card">
-              <div class="card__title">Что такое PrizeMe</div>
-              <p class="card__text">
-                Сервис для проведения розыгрышей в Telegram-каналах и группах, где
-                подписчики принимают участие в 1 клик, а победители определяются автоматически и прозрачно
-              </p>
-              <a class="btn btn--primary btn--full" href="${BOT_URL}" target="_blank" rel="noopener">
-                Открыть бота
-              </a>
-              <div class="hint">Доступны продвинутые функции для премиум-пользователей</div>
-            </div>
-          </div>
         </div>
       </section>
 
