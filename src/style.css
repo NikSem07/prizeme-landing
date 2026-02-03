@@ -75,12 +75,16 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
 }
 
-/* Фон-слой живёт на z=0, контент поверх него на z=1 */
-.header,
+/* Контент поверх фон-слоя */
 main,
 .footer {
   position: relative;
   z-index: 1;
+}
+
+/* Header должен сохранять position: sticky/fixed — поэтому НЕ трогаем position */
+.header {
+  z-index: 1000; /* поверх glow и контента */
 }
 
 .header {
