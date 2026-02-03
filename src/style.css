@@ -13,7 +13,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; overflow-x: hidden; }
+html, body { min-height: 100%; overflow-x: hidden; }
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -21,10 +21,17 @@ body {
   background: radial-gradient(900px 500px at 20% 10%, rgba(91,58,239,0.35), transparent 60%),
               radial-gradient(900px 500px at 80% 20%, rgba(252,77,155,0.25), transparent 60%),
               linear-gradient(180deg, var(--bg), var(--bg2));
+  background-color: var(--bg);
 }
 
 html {
   scroll-behavior: smooth;
+
+  /* iOS Safari: при pull-to-refresh/overscroll может показываться фон html */
+  background: radial-gradient(900px 500px at 20% 10%, rgba(91,58,239,0.35), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(252,77,155,0.25), transparent 60%),
+              linear-gradient(180deg, var(--bg), var(--bg2));
+  background-color: var(--bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
