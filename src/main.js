@@ -37,6 +37,7 @@ document.querySelector("#app").innerHTML = `
                 Как это работает
               </a>
             </div>
+          </div>
         </div>
       </section>
 
