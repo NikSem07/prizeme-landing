@@ -52,10 +52,6 @@ function How() {
     <section id="how" class="section">
       <div class="container">
         <h2>Как работает PrizeMe</h2>
-        <p class="section__lead">
-          Создайте розыгрыш, укажите условия участия и подключите канал. PrizeMe сам проверит выполнение условий,
-          примет участников и определит победителей
-        </p>
 
         <div class="steps">
           <div class="step">
