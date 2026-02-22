@@ -193,11 +193,25 @@ function FAQ() {
 }
 
 function Footer() {
+  const year = new Date().getFullYear();
   return `
     <footer class="footer">
-      <div class="container footer__inner">
-        <div class="muted">© ${new Date().getFullYear()} PrizeMe</div>
-        <div class="muted">prizeme.ru</div>
+      <div class="container">
+        <div class="footer__inner">
+
+          <span class="muted">© ${year} PrizeMe. Все права защищены.</span>
+
+          <div class="footer-legal">
+            <span class="footer-legal__label">Правовая информация</span>
+            <div class="footer-legal__links">
+              <a href="/legal.html?doc=privacy"      target="_blank" rel="noopener" class="footer-legal__link">Политика конфиденциальности</a>
+              <a href="/legal.html?doc=terms"         target="_blank" rel="noopener" class="footer-legal__link">Пользовательское соглашение</a>
+              <a href="/legal.html?doc=offer"         target="_blank" rel="noopener" class="footer-legal__link">Публичная оферта</a>
+              <a href="/legal.html?doc=subscription"  target="_blank" rel="noopener" class="footer-legal__link">Оферта регулярных платежей</a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </footer>
   `;

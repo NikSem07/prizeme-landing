@@ -374,3 +374,77 @@ p { margin: 0; color: var(--muted); line-height: 1.6; }
     }
   }
 }
+
+/* ── Footer: расширенный layout ── */
+.footer {
+  padding: 28px 0;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ── Блок правовой информации в футере ── */
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.footer-legal__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.footer-legal__links {
+  display: flex;
+  gap: 6px 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-legal__link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.footer-legal__link:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Responsive: футер на мобиле ── */
+@media (max-width: 640px) {
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-legal {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-legal__links {
+    justify-content: flex-start;
+    gap: 6px 12px;
+  }
+
+  .footer-legal__link {
+    white-space: normal;
+  }
+}
