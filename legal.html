@@ -31,16 +31,8 @@
       }
 
       *, *::before, *::after { box-sizing: border-box; }
-
-      html {
-        scroll-behavior: smooth;
-        background-color: var(--bg);
-      }
-
-      html, body {
-        min-height: 100%;
-        overflow-x: hidden;
-      }
+      html { scroll-behavior: smooth; background-color: var(--bg); }
+      html, body { min-height: 100%; overflow-x: hidden; }
 
       body {
         margin: 0;
@@ -66,7 +58,6 @@
           radial-gradient(900px 520px at 78% 88%, rgba(252,77,155,0.09), transparent 60%);
         background-size: 140% 140%;
         animation: legalGlow 14s ease-in-out infinite alternate;
-        will-change: background-position;
       }
 
       @keyframes legalGlow {
@@ -86,7 +77,7 @@
         margin: 0 auto;
       }
 
-      /* ── Header: только логотип + кнопка "назад" ── */
+      /* ── Header ── */
       .header {
         position: fixed;
         left: 0; right: 0; top: 0;
@@ -136,12 +127,7 @@
         color: var(--text);
       }
 
-      .btn-back__arrow {
-        font-size: 15px;
-        line-height: 1;
-      }
-
-      /* ── Main layout ── */
+      /* ── Layout ── */
       .legal-main {
         position: relative;
         z-index: 1;
@@ -168,7 +154,6 @@
         border: 1px solid var(--line);
         border-radius: var(--radius);
         padding: 24px 16px;
-        overflow: hidden;
       }
 
       .legal-sidebar__heading {
@@ -216,7 +201,7 @@
         font-weight: 600;
       }
 
-      /* ── Content area ── */
+      /* ── Content ── */
       .legal-content { min-width: 0; }
 
       .legal-doc {
@@ -231,6 +216,7 @@
         to   { opacity: 1; transform: translateY(0); }
       }
 
+      /* ── Doc typography ── */
       .legal-doc__eyebrow {
         font-size: 11px;
         font-weight: 700;
@@ -241,16 +227,156 @@
       }
 
       .legal-doc__title {
-        font-size: 34px;
+        font-size: 32px;
         font-weight: 800;
         line-height: 1.12;
-        margin: 0 0 28px;
+        margin: 0 0 6px;
         background: linear-gradient(135deg, var(--text) 55%, rgba(255,255,255,0.45));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
+      .legal-doc__subtitle {
+        font-size: 14px;
+        color: var(--muted);
+        margin: 0 0 6px;
+        font-style: italic;
+      }
+
+      .legal-doc__edition {
+        font-size: 12px;
+        color: var(--muted);
+        opacity: 0.7;
+        margin: 0 0 32px;
+      }
+
+      /* Тело документа */
+      .legal-doc__body { }
+
+      .legal-doc__body h2 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+        margin: 32px 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+        letter-spacing: 0.03em;
+      }
+
+      .legal-doc__body h2:first-child { margin-top: 0; }
+
+      /* Пункты — обычные абзацы */
+      .legal-doc__body p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 0 0 10px;
+      }
+
+      /* Выделенный пункт (номерной) */
+      .legal-doc__body p.clause {
+        padding-left: 0;
+      }
+
+      /* Списки с дефисами или буллетами */
+      .legal-doc__body ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 12px;
+      }
+
+      .legal-doc__body ul li {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.8;
+        padding-left: 16px;
+        position: relative;
+        margin: 4px 0;
+      }
+
+      .legal-doc__body ul li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--muted);
+        opacity: 0.5;
+      }
+
+      /* Таблица тарифов */
+      .tariff-block {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px 24px;
+        margin: 12px 0 16px;
+      }
+
+      .tariff-block__name {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0 0 10px;
+      }
+
+      .tariff-block__rows {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .tariff-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: var(--muted);
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .tariff-row:last-child { border-bottom: none; }
+
+      .tariff-row__price {
+        font-weight: 600;
+        color: var(--text);
+        white-space: nowrap;
+      }
+
+      /* Контактный блок */
+      .contact-block {
+        background: rgba(91,58,239,0.08);
+        border: 1px solid rgba(91,58,239,0.25);
+        border-radius: 14px;
+        padding: 18px 20px;
+        margin: 12px 0 16px;
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .contact-block a {
+        color: rgba(150, 120, 255, 0.9);
+        text-decoration: none;
+      }
+
+      .contact-block a:hover {
+        text-decoration: underline;
+      }
+
+      /* Мета внизу документа */
+      .legal-doc__meta {
+        font-size: 12px;
+        color: var(--muted);
+        opacity: 0.6;
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      /* Intro-страница */
       .legal-doc__intro-card {
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid var(--line);
@@ -262,10 +388,7 @@
         max-width: 580px;
       }
 
-      .legal-doc__intro-card strong {
-        color: var(--text);
-        font-weight: 600;
-      }
+      .legal-doc__intro-card strong { color: var(--text); font-weight: 600; }
 
       .legal-doc__list {
         list-style: none;
@@ -302,45 +425,6 @@
       .legal-doc__list-icon { font-size: 18px; flex-shrink: 0; }
       .legal-doc__list-arrow { margin-left: auto; color: var(--muted); font-size: 12px; }
 
-      .legal-doc__placeholder {
-        background: rgba(255,255,255,0.03);
-        border: 1px dashed rgba(255,255,255,0.12);
-        border-radius: var(--radius);
-        padding: 48px 32px;
-        text-align: center;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .legal-doc__placeholder-icon {
-        font-size: 32px;
-        margin-bottom: 12px;
-        display: block;
-      }
-
-      .legal-doc__body h2 {
-        font-size: 20px; font-weight: 700; color: var(--text); margin: 36px 0 10px;
-      }
-      .legal-doc__body h2:first-child { margin-top: 0; }
-      .legal-doc__body h3 {
-        font-size: 15px; font-weight: 600; color: var(--text); margin: 20px 0 8px;
-      }
-      .legal-doc__body p {
-        font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0 0 14px;
-      }
-      .legal-doc__body ul, .legal-doc__body ol {
-        padding-left: 20px; margin: 0 0 14px;
-        color: var(--muted); font-size: 14px; line-height: 1.8;
-      }
-      .legal-doc__body li { margin: 6px 0; }
-
-      .legal-doc__meta {
-        font-size: 12px; color: var(--muted);
-        margin-top: 40px; padding-top: 16px;
-        border-top: 1px solid var(--line);
-      }
-
       /* ── Mobile toggle ── */
       .legal-toggle {
         display: none;
@@ -375,92 +459,58 @@
       }
 
       /* ── Responsive ── */
-      @media (max-width: 920px) {
-        .nav { display: none; }
-      }
-
       @media (max-width: 768px) {
-        .legal-layout {
-          grid-template-columns: 1fr;
-          gap: 0;
-        }
-        .legal-sidebar {
-          position: static;
-          margin-bottom: 20px;
-        }
+        .legal-layout { grid-template-columns: 1fr; gap: 0; }
+        .legal-sidebar { position: static; margin-bottom: 20px; }
         .legal-toggle { display: flex; }
-        .legal-sidebar__card {
-          display: none;
-          margin-bottom: 8px;
-          border-radius: 14px;
-        }
+        .legal-sidebar__card { display: none; border-radius: 14px; }
         .legal-sidebar--open .legal-sidebar__card { display: block; }
         .legal-doc__title { font-size: 26px; }
-        .legal-main {
-          padding-top: calc(var(--header-h) + 24px);
-          padding-bottom: 48px;
-        }
+        .legal-main { padding-top: calc(var(--header-h) + 24px); padding-bottom: 48px; }
         .container { width: calc(100% - 32px); }
+        .legal-doc__intro-card { padding: 20px; }
+        .tariff-block { padding: 16px; }
       }
 
       @media (max-width: 480px) {
         .legal-doc__title { font-size: 22px; }
-        .legal-doc__intro-card { padding: 20px; }
-        .legal-doc__placeholder { padding: 32px 20px; }
       }
 
       @supports (-webkit-touch-callout: none) {
         @media (max-width: 920px) {
-          .header {
-            padding-top: env(safe-area-inset-top);
-            background: rgba(11, 11, 16, 0.88);
-          }
+          .header { padding-top: env(safe-area-inset-top); background: rgba(11,11,16,0.88); }
           .header__inner { height: var(--header-h); }
-          .legal-main {
-            padding-top: calc(var(--header-h) + env(safe-area-inset-top) + 24px);
-          }
+          .legal-main { padding-top: calc(var(--header-h) + env(safe-area-inset-top) + 24px); }
         }
       }
     </style>
   </head>
-
   <body>
 
-    <!-- ── HEADER: только логотип + кнопка назад, без nav-ссылок ── -->
+    <!-- HEADER -->
     <header class="header">
       <div class="container">
         <div class="header__inner">
           <a href="/" class="brand">PrizeMe</a>
-          <a href="/" class="btn-back">
-            <span class="btn-back__arrow">←</span>
-            На главную
-          </a>
+          <a href="/" class="btn-back">← На главную</a>
         </div>
       </div>
     </header>
 
-    <!-- ── MAIN ── -->
+    <!-- MAIN -->
     <main class="legal-main">
       <div class="container">
         <div class="legal-layout">
 
-          <!-- ── SIDEBAR ── -->
-          <aside class="legal-sidebar" id="legal-sidebar" aria-label="Навигация по документам">
-
-            <button
-              class="legal-toggle"
-              id="legal-toggle"
-              type="button"
-              aria-expanded="false"
-              aria-controls="legal-sidebar"
-            >
+          <!-- SIDEBAR -->
+          <aside class="legal-sidebar" id="legal-sidebar">
+            <button class="legal-toggle" id="legal-toggle" type="button" aria-expanded="false">
               <span id="legal-toggle-label">Выберите документ</span>
               <span class="legal-toggle__arrow">▼</span>
             </button>
-
             <div class="legal-sidebar__card">
               <p class="legal-sidebar__heading">Правовая информация</p>
-              <nav class="legal-nav" aria-label="Правовые документы">
+              <nav class="legal-nav">
                 <button class="legal-nav__item legal-nav__item--active" data-doc="intro"        type="button">О разделе</button>
                 <button class="legal-nav__item"                          data-doc="privacy"      type="button">Политика конфиденциальности</button>
                 <button class="legal-nav__item"                          data-doc="terms"        type="button">Пользовательское соглашение</button>
@@ -470,9 +520,10 @@
             </div>
           </aside>
 
-          <!-- ── CONTENT ── -->
+          <!-- CONTENT -->
           <section class="legal-content" aria-live="polite">
 
+            <!-- О разделе -->
             <article class="legal-doc" id="doc-intro">
               <p class="legal-doc__eyebrow">PrizeMe · Правовые документы</p>
               <h1 class="legal-doc__title">Правовая информация</h1>
@@ -481,91 +532,510 @@
                 Выберите документ для ознакомления из раздела навигации.
               </div>
               <ul class="legal-doc__list">
-                <li>
-                  <button class="legal-doc__list-item" data-doc="privacy" type="button">
-                    <span class="legal-doc__list-icon">🔒</span>
-                    Политика конфиденциальности
-                    <span class="legal-doc__list-arrow">›</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="legal-doc__list-item" data-doc="terms" type="button">
-                    <span class="legal-doc__list-icon">📄</span>
-                    Пользовательское соглашение
-                    <span class="legal-doc__list-arrow">›</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="legal-doc__list-item" data-doc="offer" type="button">
-                    <span class="legal-doc__list-icon">📃</span>
-                    Публичная оферта
-                    <span class="legal-doc__list-arrow">›</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="legal-doc__list-item" data-doc="subscription" type="button">
-                    <span class="legal-doc__list-icon">🔄</span>
-                    Оферта регулярных платежей
-                    <span class="legal-doc__list-arrow">›</span>
-                  </button>
-                </li>
+                <li><button class="legal-doc__list-item" data-doc="privacy"      type="button"><span class="legal-doc__list-icon">🔒</span>Политика конфиденциальности<span class="legal-doc__list-arrow">›</span></button></li>
+                <li><button class="legal-doc__list-item" data-doc="terms"        type="button"><span class="legal-doc__list-icon">📄</span>Пользовательское соглашение<span class="legal-doc__list-arrow">›</span></button></li>
+                <li><button class="legal-doc__list-item" data-doc="offer"        type="button"><span class="legal-doc__list-icon">📃</span>Публичная оферта<span class="legal-doc__list-arrow">›</span></button></li>
+                <li><button class="legal-doc__list-item" data-doc="subscription" type="button"><span class="legal-doc__list-icon">🔄</span>Оферта регулярных платежей<span class="legal-doc__list-arrow">›</span></button></li>
               </ul>
             </article>
 
+
+            <!-- ══════════════════════════════════════════
+                 ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
+            ══════════════════════════════════════════ -->
             <article class="legal-doc legal-doc--hidden" id="doc-privacy">
               <p class="legal-doc__eyebrow">PrizeMe · Правовые документы</p>
               <h1 class="legal-doc__title">Политика конфиденциальности</h1>
+              <p class="legal-doc__subtitle">PrizeMe (ПрайзМи)</p>
+              <p class="legal-doc__edition">Редакция от 22.02.2026 г.</p>
+
               <div class="legal-doc__body">
-                <div class="legal-doc__placeholder">
-                  <span class="legal-doc__placeholder-icon">🔒</span>
-                  Текст документа будет добавлен в ближайшее время.
+
+                <h2>1. Общие положения</h2>
+                <p class="clause">1.1. Настоящая Политика обработки персональных данных (далее — «Политика») разработана в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению их безопасности.</p>
+                <p class="clause">1.2. Оператор персональных данных: Семенов Никита Дмитриевич, самозанятый (физическое лицо), ИНН 561020291538 (далее — «Оператор»).</p>
+                <p class="clause">1.3. Политика применяется ко всей информации, которую Оператор может получить о Пользователях при использовании сервиса PrizeMe, включая:</p>
+                <ul>
+                  <li>Телеграм-бот;</li>
+                  <li>Телеграм мини-приложение;</li>
+                  <li>сайт https://prizeme.ru.</li>
+                </ul>
+                <p class="clause">1.4. Использование Телеграм-бота, Телеграм мини-приложения или сайта означает согласие Пользователя с настоящей Политикой.</p>
+                <p class="clause">1.5. Моментом выражения согласия считается:</p>
+                <ul>
+                  <li>нажатие кнопки «Start/Старт» в Телеграм-боте;</li>
+                  <li>использование Телеграм мини-приложения;</li>
+                  <li>использование функционала Сервиса;</li>
+                  <li>оформление подписки или иной платной функции.</li>
+                </ul>
+
+                <h2>2. Основные понятия</h2>
+                <p>В настоящей Политике используются понятия в значении, установленном Федеральным законом № 152-ФЗ «О персональных данных», включая:</p>
+                <ul>
+                  <li>персональные данные;</li>
+                  <li>обработка персональных данных;</li>
+                  <li>автоматизированная обработка;</li>
+                  <li>блокирование;</li>
+                  <li>уничтожение;</li>
+                  <li>обезличивание;</li>
+                  <li>трансграничная передача персональных данных.</li>
+                </ul>
+
+                <h2>3. Категории обрабатываемых персональных данных</h2>
+                <p>Оператор может обрабатывать следующие данные Пользователя:</p>
+                <p class="clause">3.1. Данные, предоставляемые через Telegram:</p>
+                <ul>
+                  <li>имя и фамилия (если указаны в аккаунте Telegram);</li>
+                  <li>username;</li>
+                  <li>Telegram ID;</li>
+                  <li>фотография профиля (если доступна);</li>
+                  <li>данные о подписках внутри Сервиса.</li>
+                </ul>
+                <p class="clause">3.2. Контактные данные (если предоставлены добровольно):</p>
+                <ul>
+                  <li>адрес электронной почты;</li>
+                  <li>номер телефона.</li>
+                </ul>
+                <p class="clause">3.3. Технические данные:</p>
+                <ul>
+                  <li>IP-адрес;</li>
+                  <li>данные об устройстве;</li>
+                  <li>информация о действиях в Телеграм мини-приложении;</li>
+                  <li>файлы cookie (при использовании сайта).</li>
+                </ul>
+                <p class="clause">3.4. Платежная информация: Оператор не хранит данные банковских карт. Оплата подписок и услуг осуществляется через сторонние платежные сервисы (в том числе Tribute), которые обрабатывают платежные данные в соответствии со своими правилами.</p>
+
+                <h2>4. Цели обработки персональных данных</h2>
+                <p>Персональные данные обрабатываются для следующих целей:</p>
+                <p class="clause">4.1. Предоставление доступа к Телеграм-боту и Телеграм мини-приложению.</p>
+                <p class="clause">4.2. Обеспечение функционирования Сервиса.</p>
+                <p class="clause">4.3. Обработка подписок и платных функций.</p>
+                <p class="clause">4.4. Обратная связь с Пользователем.</p>
+                <p class="clause">4.5. Направление информационных сообщений, связанных с использованием Сервиса.</p>
+                <p class="clause">4.6. Улучшение качества Сервиса и проведение статистических исследований (в том числе на основе обезличенных данных).</p>
+
+                <h2>5. Правовые основания обработки</h2>
+                <p>Обработка персональных данных осуществляется:</p>
+                <ul>
+                  <li>на основании согласия Пользователя;</li>
+                  <li>в целях исполнения Пользовательского соглашения;</li>
+                  <li>в случаях, предусмотренных законодательством РФ.</li>
+                </ul>
+
+                <h2>6. Порядок обработки и хранения</h2>
+                <p class="clause">6.1. Обработка персональных данных осуществляется автоматизированным способом.</p>
+                <p class="clause">6.2. Оператор принимает необходимые правовые, организационные и технические меры для защиты персональных данных от неправомерного доступа.</p>
+                <p class="clause">6.3. Персональные данные хранятся не дольше, чем этого требуют цели обработки, либо до момента отзыва согласия Пользователя, если иное не предусмотрено законодательством РФ.</p>
+                <p class="clause">6.4. Пользователь вправе отозвать согласие на обработку персональных данных, направив запрос на email: <a href="mailto:Semenov.NDwork@yandex.ru" style="color:rgba(150,120,255,0.9);">Semenov.NDwork@yandex.ru</a></p>
+
+                <h2>7. Передача персональных данных</h2>
+                <p class="clause">7.1. Оператор не распространяет персональные данные третьим лицам без согласия Пользователя, за исключением случаев, предусмотренных законодательством РФ.</p>
+                <p class="clause">7.2. В целях функционирования Сервиса персональные данные могут передаваться:</p>
+                <ul>
+                  <li>Telegram (в рамках работы платформы);</li>
+                  <li>платежным сервисам (в том числе Tribute);</li>
+                  <li>хостинг-провайдерам и IT-подрядчикам, обеспечивающим работу Сервиса.</li>
+                </ul>
+                <p class="clause">7.3. Указанные лица обрабатывают данные в соответствии со своими политиками конфиденциальности.</p>
+
+                <h2>8. Трансграничная передача</h2>
+                <p class="clause">8.1. При использовании Телеграм-бота и Телеграм мини-приложения возможна трансграничная передача персональных данных в связи с использованием инфраструктуры Telegram.</p>
+                <p class="clause">8.2. Пользователь, принимая настоящую Политику, выражает согласие на такую передачу.</p>
+
+                <h2>9. Права пользователя</h2>
+                <p>Пользователь вправе:</p>
+                <ul>
+                  <li>получать информацию об обработке своих персональных данных;</li>
+                  <li>требовать уточнения, блокирования или уничтожения данных;</li>
+                  <li>отзывать согласие на обработку;</li>
+                  <li>обращаться в уполномоченный орган по защите прав субъектов персональных данных.</li>
+                </ul>
+
+                <h2>10. Контактная информация</h2>
+                <div class="contact-block">
+                  Оператор персональных данных:<br>
+                  <strong>Семенов Никита Дмитриевич</strong><br>
+                  ИНН 561020291538<br>
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Телеграм поддержка: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
                 </div>
+
+                <h2>11. Изменение политики</h2>
+                <p class="clause">11.1. Оператор вправе изменять настоящую Политику.</p>
+                <p class="clause">11.2. Новая редакция вступает в силу с момента её публикации на сайте https://prizeme.ru.</p>
+
               </div>
-              <p class="legal-doc__meta">Версия документа будет указана после публикации.</p>
+              <p class="legal-doc__meta">Редакция от 22.02.2026 г.</p>
             </article>
 
+
+            <!-- ══════════════════════════════════════════
+                 ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
+            ══════════════════════════════════════════ -->
             <article class="legal-doc legal-doc--hidden" id="doc-terms">
               <p class="legal-doc__eyebrow">PrizeMe · Правовые документы</p>
               <h1 class="legal-doc__title">Пользовательское соглашение</h1>
+              <p class="legal-doc__subtitle">Правила использования сервиса PrizeMe (ПрайзМи)</p>
+              <p class="legal-doc__edition">Редакция от 22.02.2026 г.</p>
+
               <div class="legal-doc__body">
-                <div class="legal-doc__placeholder">
-                  <span class="legal-doc__placeholder-icon">📄</span>
-                  Текст документа будет добавлен в ближайшее время.
+
+                <h2>1. Преамбула. Акцепт соглашения</h2>
+                <p class="clause">1.1. Настоящее Пользовательское соглашение (далее — «Соглашение») определяет правила использования сервиса PrizeMe (далее — ПрайзМи), включающего Телеграм-бота и Телеграм мини-приложение (далее совместно — «Сервис»), и является публичной офертой в смысле статей 437–438 Гражданского кодекса Российской Федерации.</p>
+                <p class="clause">1.2. Администратор Сервиса: Семенов Никита Дмитриевич, самозанятый (физическое лицо), ИНН 561020291538 (далее — «Администратор»).</p>
+                <p class="clause">1.3. Пользователь — любое лицо, использующее Сервис (далее — «Пользователь»). Администратор и Пользователь совместно именуются «Стороны».</p>
+                <p class="clause">1.4. Акцептом настоящего Соглашения считается совершение Пользователем любого из следующих действий:</p>
+                <ul>
+                  <li>нажатие кнопки «Start/Старт» в Телеграм-боте;</li>
+                  <li>использование Телеграм мини-приложения;</li>
+                  <li>использование любых функций Сервиса;</li>
+                  <li>оформление или использование платных функций Сервиса.</li>
+                </ul>
+                <p>Совершая акцепт, Пользователь подтверждает, что ознакомился с условиями Соглашения и принимает их в полном объёме.</p>
+                <p class="clause">1.5. В случае несогласия с условиями Соглашения Пользователь обязан прекратить использование Сервиса.</p>
+                <p class="clause">1.6. Актуальная редакция Соглашения размещается на сайте https://prizeme.ru и/или предоставляется в Сервисе по ссылке.</p>
+
+                <h2>2. Термины</h2>
+                <p class="clause">2.1. Сервис — программный комплекс ПрайзМи, доступный через Телеграм-бот и Телеграм мини-приложение.</p>
+                <p class="clause">2.2. Создатель — Пользователь, создающий и администрирующий розыгрыши или иные механики через Сервис.</p>
+                <p class="clause">2.3. Участник — Пользователь, принимающий участие в розыгрышах или механиках, созданных Создателями.</p>
+                <p class="clause">2.4. Розыгрыш — пользовательская механика, размещаемая Создателем через Сервис, включая условия участия, сроки, правила определения победителей и описание призов.</p>
+                <p class="clause">2.5. Платные функции — дополнительные возможности Сервиса, включая подписки и платные размещения.</p>
+                <p class="clause">2.6. Платежный партнер — сторонний сервис, через который осуществляется приём платежей (в том числе Телеграм-сервис Tribute).</p>
+
+                <h2>3. Предмет соглашения</h2>
+                <p class="clause">3.1. Администратор предоставляет Пользователю доступ к функционалу Сервиса на условиях настоящего Соглашения.</p>
+                <p class="clause">3.2. ПрайзМи является технологической платформой и предоставляет инструменты для создания и проведения пользовательских механик.</p>
+                <p class="clause">3.3. Администратор не является организатором розыгрышей, не принимает на себя обязательства по выдаче призов и не гарантирует выполнение Создателями своих обязательств.</p>
+                <p class="clause">3.4. Все розыгрыши создаются и проводятся исключительно Создателями и под их ответственность.</p>
+                <p class="clause">3.5. ПрайзМи не осуществляет азартную деятельность и не организует лотереи.</p>
+
+                <h2>4. Доступ и использование</h2>
+                <p class="clause">4.1. Использование Сервиса осуществляется через инфраструктуру Телеграм.</p>
+                <p class="clause">4.2. Идентификация Пользователя производится на основании данных Телеграм.</p>
+                <p class="clause">4.3. Пользователь несёт ответственность за сохранность своей учётной записи Телеграм.</p>
+
+                <h2>5. Правила использования</h2>
+                <p>Пользователю запрещается:</p>
+                <ul>
+                  <li>обходить технические ограничения Сервиса;</li>
+                  <li>использовать автоматизацию, ботов или накрутку;</li>
+                  <li>размещать незаконный контент;</li>
+                  <li>нарушать права третьих лиц;</li>
+                  <li>вводить других Пользователей в заблуждение;</li>
+                  <li>использовать Сервис для спама или вредоносной активности.</li>
+                </ul>
+                <p>Администратор вправе ограничивать доступ к Сервису при выявлении нарушений.</p>
+
+                <h2>6. Розыгрыши. Ответственность сторон</h2>
+                <p class="clause">6.1. Создатель несёт полную ответственность за:</p>
+                <ul>
+                  <li>законность розыгрыша;</li>
+                  <li>содержание и условия;</li>
+                  <li>определение победителей;</li>
+                  <li>выдачу призов;</li>
+                  <li>соблюдение законодательства РФ.</li>
+                </ul>
+                <p class="clause">6.2. Участник несёт ответственность за добросовестное участие.</p>
+                <p class="clause">6.3. Администратор вправе удалять или ограничивать доступ к розыгрышам при нарушениях или жалобах.</p>
+
+                <h2>7. Платные функции</h2>
+                <p class="clause">7.1. Условия подписок, автопродлений, возвратов и платных услуг регулируются отдельными офертами, размещёнными на сайте и/или в Сервисе.</p>
+                <p class="clause">7.2. Оплата осуществляется через сторонние платежные сервисы (включая Tribute). Управление подписками производится через интерфейс платёжного партнёра.</p>
+                <p class="clause">7.3. Администратор не отвечает за технические сбои Телеграм или платёжных сервисов.</p>
+
+                <h2>8. Персональные данные</h2>
+                <p class="clause">8.1. Пользователь даёт согласие на обработку персональных данных в соответствии с Политикой конфиденциальности ПрайзМи.</p>
+                <p class="clause">8.2. Телеграм и платёжные партнёры обрабатывают данные по собственным правилам.</p>
+
+                <h2>9. Интеллектуальные права</h2>
+                <p class="clause">9.1. Все элементы Сервиса принадлежат Администратору.</p>
+                <p class="clause">9.2. Пользователю предоставляется неисключительное право использования Сервиса.</p>
+                <p class="clause">9.3. Запрещены копирование, декомпиляция и создание производных сервисов.</p>
+
+                <h2>10. Ограничение ответственности</h2>
+                <p>Сервис предоставляется «как есть». Администратор не несёт ответственности за:</p>
+                <ul>
+                  <li>действия Пользователей;</li>
+                  <li>контент Создателей;</li>
+                  <li>сбои Телеграм и платёжных систем;</li>
+                  <li>невыполнение обязательств Создателями.</li>
+                </ul>
+
+                <h2>11. Изменение соглашения</h2>
+                <p>Администратор вправе изменять Соглашение. Новая редакция вступает в силу через 3 рабочих дня после публикации.</p>
+
+                <h2>12. Поддержка</h2>
+                <div class="contact-block">
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Телеграм поддержка: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
                 </div>
+
+                <h2>13. Споры</h2>
+                <p>Применяется право Российской Федерации. Претензионный порядок обязателен. Срок ответа — 30 дней.</p>
+
+                <h2>14. Реквизиты</h2>
+                <div class="contact-block">
+                  Самозанятый (физическое лицо):<br>
+                  <strong>Семенов Никита Дмитриевич</strong><br>
+                  ИНН 561020291538<br>
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Телеграм поддержка: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
+                </div>
+
               </div>
-              <p class="legal-doc__meta">Версия документа будет указана после публикации.</p>
+              <p class="legal-doc__meta">Редакция от 22.02.2026 г.</p>
             </article>
 
+
+            <!-- ══════════════════════════════════════════
+                 ПУБЛИЧНАЯ ОФЕРТА
+            ══════════════════════════════════════════ -->
             <article class="legal-doc legal-doc--hidden" id="doc-offer">
               <p class="legal-doc__eyebrow">PrizeMe · Правовые документы</p>
               <h1 class="legal-doc__title">Публичная оферта</h1>
+              <p class="legal-doc__subtitle">На оказание услуг в сервисе PrizeMe (ПрайзМи)</p>
+              <p class="legal-doc__edition">Редакция от 22.02.2026 г.</p>
+
               <div class="legal-doc__body">
-                <div class="legal-doc__placeholder">
-                  <span class="legal-doc__placeholder-icon">📃</span>
-                  Текст документа будет добавлен в ближайшее время.
+
+                <h2>1. Общие положения</h2>
+                <p class="clause">1.1. Настоящая Публичная оферта (далее — «Оферта») является официальным предложением в смысле статей 435–438 Гражданского кодекса Российской Федерации и определяет условия оказания услуг посредством сервиса PrizeMe (далее — ПрайзМи).</p>
+                <p class="clause">1.2. Исполнитель: Семенов Никита Дмитриевич, самозанятый (физическое лицо), ИНН 561020291538 (далее — «Исполнитель»).</p>
+                <p class="clause">1.3. Заказчик — физическое или юридическое лицо, использующее Телеграм-бот или Телеграм мини-приложение ПрайзМи и совершающее оплату услуг (далее — «Заказчик»).</p>
+                <p class="clause">1.4. Настоящая Оферта является публичной и действует бессрочно до её отзыва Исполнителем.</p>
+                <p class="clause">1.5. Акцептом Оферты считается совершение Заказчиком любого из следующих действий:</p>
+                <ul>
+                  <li>подтверждение заказа услуги в Телеграм-боте или Телеграм мини-приложении;</li>
+                  <li>нажатие кнопки оплаты;</li>
+                  <li>фактическая оплата услуги.</li>
+                </ul>
+                <p>С момента акцепта Оферта считается заключённым договором оказания услуг.</p>
+
+                <h2>2. Предмет оферты</h2>
+                <p class="clause">2.1. Исполнитель обязуется оказать Заказчику цифровые услуги, связанные с использованием функционала ПрайзМи, а Заказчик обязуется оплатить такие услуги.</p>
+                <p class="clause">2.2. К услугам Исполнителя относятся, в том числе:</p>
+                <ul>
+                  <li>размещение розыгрышей Заказчика на главной странице Телеграм мини-приложения ПрайзМи;</li>
+                  <li>публикация информации о розыгрышах Заказчика в Телеграм-боте ПрайзМи;</li>
+                  <li>размещение промо-материалов, заданий и маркетинговых механик в рамках розыгрышей;</li>
+                  <li>иные цифровые услуги, предлагаемые в интерфейсе ПрайзМи.</li>
+                </ul>
+                <p class="clause">2.3. Конкретный состав услуги, её описание и стоимость отображаются Заказчику непосредственно перед подтверждением оплаты.</p>
+                <p class="clause">2.4. Услуги оказываются в электронном виде и не предполагают передачу материальных носителей.</p>
+
+                <h2>3. Статус сервиса</h2>
+                <p class="clause">3.1. ПрайзМи является технологической платформой.</p>
+                <p class="clause">3.2. Исполнитель не является организатором розыгрышей и не несёт ответственности за:</p>
+                <ul>
+                  <li>содержание розыгрышей Заказчика;</li>
+                  <li>выполнение Заказчиком обязательств перед участниками;</li>
+                  <li>выдачу призов;</li>
+                  <li>соблюдение Заказчиком требований законодательства РФ.</li>
+                </ul>
+                <p class="clause">3.3. Заказчик самостоятельно несёт ответственность за законность своих розыгрышей, контента и маркетинговых механик.</p>
+
+                <h2>4. Порядок оказания услуг</h2>
+                <p class="clause">4.1. Услуги оказываются после поступления оплаты.</p>
+                <p class="clause">4.2. Сроки и формат оказания услуги определяются её типом и отображаются в интерфейсе ПрайзМи.</p>
+                <p class="clause">4.3. Услуга считается оказанной с момента:</p>
+                <ul>
+                  <li>размещения информации о розыгрыше;</li>
+                  <li>публикации поста;</li>
+                  <li>активации промо-механики;</li>
+                  <li>либо предоставления соответствующего функционала.</li>
+                </ul>
+
+                <h2>5. Стоимость услуг и оплата</h2>
+                <p class="clause">5.1. Стоимость услуг устанавливается Исполнителем и отображается Заказчику до момента оплаты.</p>
+                <p class="clause">5.2. Стоимость может быть фиксированной либо динамической.</p>
+                <p class="clause">5.3. Оплата осуществляется на условиях 100% предоплаты через сторонние платёжные сервисы (в том числе Tribute).</p>
+                <p class="clause">5.4. Исполнитель не хранит и не обрабатывает платёжные реквизиты Заказчика.</p>
+                <p class="clause">5.5. Обязанность по оплате считается исполненной с момента подтверждения платежа платёжным сервисом.</p>
+
+                <h2>6. Возврат денежных средств</h2>
+                <p class="clause">6.1. Услуги Исполнителя являются цифровыми.</p>
+                <p class="clause">6.2. После начала оказания услуги (размещения, публикации, активации) денежные средства возврату не подлежат, за исключением случаев, прямо предусмотренных законодательством РФ.</p>
+                <p class="clause">6.3. В случае технической невозможности оказания услуги по вине Исполнителя возврат производится по заявлению Заказчика.</p>
+                <p class="clause">6.4. Обращения по возврату принимаются:</p>
+                <div class="contact-block">
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Telegram: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
                 </div>
+
+                <h2>7. Права и обязанности сторон</h2>
+                <p>Исполнитель вправе:</p>
+                <ul>
+                  <li>изменять функционал ПрайзМи;</li>
+                  <li>отказывать в размещении контента, нарушающего закон или условия Пользовательского соглашения;</li>
+                  <li>приостанавливать оказание услуг при выявлении нарушений.</li>
+                </ul>
+                <p>Заказчик обязуется:</p>
+                <ul>
+                  <li>предоставлять достоверную информацию;</li>
+                  <li>соблюдать законодательство РФ;</li>
+                  <li>не размещать незаконный контент;</li>
+                  <li>самостоятельно обеспечивать выполнение обязательств перед участниками розыгрышей.</li>
+                </ul>
+
+                <h2>8. Ограничение ответственности</h2>
+                <p class="clause">8.1. Исполнитель не несёт ответственности за:</p>
+                <ul>
+                  <li>действия Telegram;</li>
+                  <li>работу платёжных сервисов;</li>
+                  <li>поведение участников розыгрышей;</li>
+                  <li>исполнение Заказчиком своих обязательств перед третьими лицами.</li>
+                </ul>
+                <p class="clause">8.2. Услуги предоставляются «как есть».</p>
+
+                <h2>9. Разрешение споров</h2>
+                <p class="clause">9.1. Претензионный порядок обязателен.</p>
+                <p class="clause">9.2. Срок рассмотрения претензии — 30 календарных дней.</p>
+                <p class="clause">9.3. Применимое право — законодательство Российской Федерации.</p>
+
+                <h2>10. Изменение оферты</h2>
+                <p class="clause">10.1. Исполнитель вправе изменять Оферту путём публикации новой редакции на сайте https://prizeme.ru.</p>
+                <p class="clause">10.2. Новая редакция вступает в силу с момента публикации.</p>
+
+                <h2>11. Реквизиты исполнителя</h2>
+                <div class="contact-block">
+                  Самозанятый (физическое лицо):<br>
+                  <strong>Семенов Никита Дмитриевич</strong><br>
+                  ИНН: 561020291538<br>
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Telegram: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
+                </div>
+
               </div>
-              <p class="legal-doc__meta">Версия документа будет указана после публикации.</p>
+              <p class="legal-doc__meta">Редакция от 22.02.2026 г.</p>
             </article>
 
+
+            <!-- ══════════════════════════════════════════
+                 ОФЕРТА РЕГУЛЯРНЫХ ПЛАТЕЖЕЙ
+            ══════════════════════════════════════════ -->
             <article class="legal-doc legal-doc--hidden" id="doc-subscription">
               <p class="legal-doc__eyebrow">PrizeMe · Правовые документы</p>
               <h1 class="legal-doc__title">Оферта регулярных платежей</h1>
+              <p class="legal-doc__subtitle">Соглашение об автопродлении подписок и регулярных списаниях в сервисе ПрайзМи</p>
+              <p class="legal-doc__edition">Редакция от 22.02.2026 г.</p>
+
               <div class="legal-doc__body">
-                <div class="legal-doc__placeholder">
-                  <span class="legal-doc__placeholder-icon">🔄</span>
-                  Текст документа будет добавлен в ближайшее время.
+
+                <h2>1. Общие положения</h2>
+                <p class="clause">1.1. Настоящая Оферта регулярных платежей (далее — «Оферта») определяет порядок предоставления Пользователям возможности оплаты подписок ПРЕМИУМ и PRIME (далее — ПРАЙМ) посредством регулярных автоматических списаний (автопродления) и является публичной офертой в смысле ст. 437–438 ГК РФ.</p>
+                <p class="clause">1.2. Оператор/Исполнитель: Семенов Никита Дмитриевич, самозанятый (физическое лицо), ИНН 561020291538 (далее — «Исполнитель»).</p>
+                <p class="clause">1.3. Оферта является неотъемлемой частью условий использования сервиса PrizeMe (далее — ПрайзМи) и применяется при оформлении Пользователем подписок в Телеграм-боте и/или Телеграм мини-приложении ПрайзМи.</p>
+                <p class="clause">1.4. Платежи принимаются через сторонний платёжный сервис Tribute (далее — «Платёжный партнёр»). Исполнитель не хранит и не обрабатывает платёжные реквизиты Пользователя. Платёжные реквизиты обрабатываются Платёжным партнёром в соответствии с его правилами.</p>
+                <p class="clause">1.5. Акцепт Оферты означает полное и безоговорочное согласие Пользователя со всеми её условиями.</p>
+
+                <h2>2. Термины</h2>
+                <p class="clause">2.1. Пользователь — физическое лицо, оформляющее подписку в ПрайзМи.</p>
+                <p class="clause">2.2. Подписка — предоставление Пользователю доступа к расширенному функционалу ПрайзМи на оплаченный период:</p>
+                <ul>
+                  <li>ПРЕМИУМ — расширенный функционал для создателей розыгрышей;</li>
+                  <li>ПРАЙМ — расширенный доступ к функциям ПрайзМи для участников.</li>
+                </ul>
+                <p class="clause">2.3. Регулярный платёж / автопродление — автоматическое списание стоимости следующего периода подписки через Платёжного партнёра без повторного ввода реквизитов оплаты, если такая возможность подключена Пользователем в момент оформления подписки.</p>
+                <p class="clause">2.4. Платёжный партнёр (Tribute) — сторонний сервис, через который осуществляется приём платежей и управление автопродлением.</p>
+
+                <h2>3. Порядок подключения регулярных платежей</h2>
+                <p class="clause">3.1. Подключение автопродления осуществляется Пользователем при оформлении подписки в Телеграм-боте и/или Телеграм мини-приложении ПрайзМи через интерфейс Платёжного партнёра (Tribute).</p>
+                <p class="clause">3.2. В момент оформления подписки Пользователь подтверждает согласие:</p>
+                <ul>
+                  <li>на условия настоящей Оферты;</li>
+                  <li>на автоматическое списание стоимости подписки за следующий период (при включённом автопродлении);</li>
+                  <li>на обработку платёжных данных Платёжным партнёром в соответствии с его правилами.</li>
+                </ul>
+                <p class="clause">3.3. Считается, что Пользователь подключил регулярные платежи, если в интерфейсе Tribute подписка оформлена с автопродлением и платёж подтверждён.</p>
+
+                <h2>4. Условия регулярных платежей и тарифы</h2>
+                <p class="clause">4.1. При активном автопродлении стоимость подписки списывается автоматически за следующий период до или в момент окончания оплаченного периода в соответствии с правилами Платёжного партнёра.</p>
+                <p class="clause">4.2. Тарифы подписок ПрайзМи:</p>
+
+                <div class="tariff-block">
+                  <p class="tariff-block__name">Подписка ПРЕМИУМ</p>
+                  <div class="tariff-block__rows">
+                    <div class="tariff-row"><span>1 год</span><span class="tariff-row__price">2 999 ₽</span></div>
+                    <div class="tariff-row"><span>6 месяцев</span><span class="tariff-row__price">1 699 ₽</span></div>
+                    <div class="tariff-row"><span>3 месяца</span><span class="tariff-row__price">999 ₽</span></div>
+                    <div class="tariff-row"><span>1 месяц</span><span class="tariff-row__price">399 ₽</span></div>
+                  </div>
                 </div>
+
+                <div class="tariff-block">
+                  <p class="tariff-block__name">Подписка ПРАЙМ</p>
+                  <div class="tariff-block__rows">
+                    <div class="tariff-row"><span>1 год</span><span class="tariff-row__price">990 ₽</span></div>
+                    <div class="tariff-row"><span>1 месяц</span><span class="tariff-row__price">189 ₽</span></div>
+                  </div>
+                </div>
+
+                <p class="clause">4.3. Валюта списаний — российский рубль, если иное не указано в интерфейсе Платёжного партнёра.</p>
+                <p class="clause">4.4. В случае изменения стоимости подписок Исполнитель обновляет информацию в ПрайзМи и/или на сайте https://prizeme.ru. Изменение стоимости применяется к следующему периоду, который ещё не оплачен.</p>
+
+                <h2>5. Отмена автопродления. Прекращение подписки</h2>
+                <p class="clause">5.1. Пользователь вправе отменить автопродление подписки самостоятельно через интерфейс Платёжного партнёра (Tribute) в любой момент.</p>
+                <p class="clause">5.2. При отмене автопродления:</p>
+                <ul>
+                  <li>доступ по подписке сохраняется до окончания оплаченного периода;</li>
+                  <li>списание за следующий период не производится.</li>
+                </ul>
+                <p class="clause">5.3. Подписка может прекратиться автоматически, если:</p>
+                <ul>
+                  <li>списание не удалось (недостаточно средств, ограничения банка, отказ в операции и т.п.);</li>
+                  <li>подписка отменена Пользователем через Tribute;</li>
+                  <li>Платёжный партнёр прекратил поддержку подписки по своим правилам.</li>
+                </ul>
+                <p class="clause">5.4. Исполнитель не несёт ответственности за невозможность списания по причинам, связанным с банком Пользователя, платёжной системой, Платёжным партнёром или Telegram.</p>
+
+                <h2>6. Возвраты и отказ от подписки</h2>
+                <p class="clause">6.1. Подписка предоставляет доступ к цифровым функциям Сервиса на оплаченный период.</p>
+                <p class="clause">6.2. Общие правила возвратов устанавливаются Публичной офертой ПрайзМи и применимым законодательством РФ.</p>
+                <p class="clause">6.3. Если Пользователь считает, что списание произведено ошибочно, он обязан обратиться в поддержку:</p>
+                <div class="contact-block">
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Telegram: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
+                </div>
+                <p class="clause">6.4. В случае необходимости Исполнитель может запросить у Пользователя подтверждение платежа (например, идентификатор операции в Tribute) для проверки.</p>
+
+                <h2>7. Ответственность</h2>
+                <p class="clause">7.1. Исполнитель не отвечает за:</p>
+                <ul>
+                  <li>работу и правила Платёжного партнёра (Tribute), Telegram и банков/платёжных систем;</li>
+                  <li>отказ в совершении платежа, блокировку платежа, ограничения по платежам, установленные банком Пользователя;</li>
+                  <li>задержки в зачислении платежа по причинам, не зависящим от Исполнителя.</li>
+                </ul>
+                <p class="clause">7.2. Пользователь обязуется самостоятельно контролировать состояние подписки и при необходимости отменять автопродление в интерфейсе Tribute.</p>
+
+                <h2>8. Изменение оферты</h2>
+                <p class="clause">8.1. Исполнитель вправе изменять Оферту путём публикации новой редакции на сайте https://prizeme.ru и/или предоставления ссылки в Телеграм-боте/Телеграм мини-приложении.</p>
+                <p class="clause">8.2. Новая редакция вступает в силу с момента публикации, если в ней не указан иной срок.</p>
+
+                <h2>9. Контакты исполнителя</h2>
+                <div class="contact-block">
+                  Исполнитель: <strong>Семенов Никита Дмитриевич</strong> (самозанятый, физическое лицо)<br>
+                  ИНН: 561020291538<br>
+                  Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
+                  Telegram: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
+                </div>
+
+                <h2>10. Акцепт</h2>
+                <p>Оформляя подписку ПРЕМИУМ или ПРАЙМ в Телеграм-боте или Телеграм мини-приложении ПрайзМи и подтверждая оплату через Tribute, Пользователь подтверждает, что:</p>
+                <ul>
+                  <li>ознакомился и согласен с настоящей Офертой;</li>
+                  <li>даёт согласие на регулярные списания при включённом автопродлении;</li>
+                  <li>понимает, что управляет автопродлением через Tribute.</li>
+                </ul>
+
               </div>
-              <p class="legal-doc__meta">Версия документа будет указана после публикации.</p>
+              <p class="legal-doc__meta">Редакция от 22.02.2026 г.</p>
             </article>
 
           </section>
         </div>
       </div>
     </main>
-
-    <!-- Футера нет — намеренно -->
 
     <script>
       const navBtns     = document.querySelectorAll('[data-doc]');
@@ -600,11 +1070,12 @@
           : window.location.pathname + '?doc=' + docId;
         history.replaceState({ doc: docId }, '', url);
 
+        // Скролл наверх при смене документа
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         if (window.innerWidth < 768) {
           sidebar.classList.remove('legal-sidebar--open');
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
-          document.querySelector('.legal-content')
-            ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
 
