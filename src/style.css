@@ -385,9 +385,7 @@ p { margin: 0; color: var(--muted); line-height: 1.6; }
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 20px;
+  padding-bottom: 32px;
 }
 
 /* ── Колонка ── */
@@ -442,14 +440,6 @@ p { margin: 0; color: var(--muted); line-height: 1.6; }
 .footer-legal__label-link:hover {
   opacity: 1;
   color: var(--text);
-}
-
-/* ── Нижняя часть: копирайт ── */
-.footer__bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 
 /* ── Responsive ── */

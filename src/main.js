@@ -124,6 +124,7 @@ function Footer() {
             <span class="footer__col-label">Реквизиты</span>
             <span class="footer__col-text">Семенов Никита Дмитриевич</span>
             <span class="footer__col-text">ИНН 561020291538</span>
+            <span class="footer__col-text" style="margin-top:6px;">© 2025–${year} PrizeMe. Все права защищены.</span>
           </div>
 
           <div class="footer__col">
@@ -143,13 +144,6 @@ function Footer() {
           </div>
 
         </div>
-
-        <!-- Нижняя часть: копирайт -->
-        <div class="footer__bottom">
-          <span class="muted">© ${year} PrizeMe. Все права защищены.</span>
-          <span class="muted">prizeme.ru</span>
-        </div>
-
       </div>
     </footer>
   `;
