@@ -116,18 +116,40 @@ function Footer() {
   return `
     <footer class="footer">
       <div class="container">
-        <div class="footer__inner">
-          <span class="muted">© ${year} PrizeMe. Все права защищены.</span>
-          <div class="footer-legal">
-            <a href="/legal.html" class="footer-legal__label footer-legal__label--link">Правовая информация</a>
-            <div class="footer-legal__links">
-              <a href="/legal.html?doc=privacy"      class="footer-legal__link">Политика конфиденциальности</a>
-              <a href="/legal.html?doc=terms"         class="footer-legal__link">Пользовательское соглашение</a>
-              <a href="/legal.html?doc=offer"         class="footer-legal__link">Публичная оферта</a>
-              <a href="/legal.html?doc=subscription"  class="footer-legal__link">Оферта регулярных платежей</a>
-            </div>
+
+        <!-- Верхняя часть: реквизиты + контакты + правовая информация -->
+        <div class="footer__top">
+
+          <div class="footer__col">
+            <span class="footer__col-label">Реквизиты</span>
+            <span class="footer__col-text">Семенов Никита Дмитриевич</span>
+            <span class="footer__col-text">ИНН 561020291538</span>
           </div>
+
+          <div class="footer__col">
+            <span class="footer__col-label">Контакты</span>
+            <a href="mailto:Semenov.NDwork@yandex.ru" class="footer__col-link">Semenov.NDwork@yandex.ru</a>
+            <a href="https://t.me/prizeme_support" target="_blank" rel="noopener" class="footer__col-link">@prizeme_support</a>
+          </div>
+
+          <div class="footer__col footer__col--legal">
+            <span class="footer__col-label">
+              <a href="/legal.html" class="footer-legal__label-link">Правовая информация</a>
+            </span>
+            <a href="/legal.html?doc=privacy"      class="footer__col-link">Политика конфиденциальности</a>
+            <a href="/legal.html?doc=terms"         class="footer__col-link">Пользовательское соглашение</a>
+            <a href="/legal.html?doc=offer"         class="footer__col-link">Публичная оферта</a>
+            <a href="/legal.html?doc=subscription"  class="footer__col-link">Оферта регулярных платежей</a>
+          </div>
+
         </div>
+
+        <!-- Нижняя часть: копирайт -->
+        <div class="footer__bottom">
+          <span class="muted">© ${year} PrizeMe. Все права защищены.</span>
+          <span class="muted">prizeme.ru</span>
+        </div>
+
       </div>
     </footer>
   `;
