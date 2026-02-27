@@ -483,6 +483,75 @@
           .legal-main { padding-top: calc(var(--header-h) + env(safe-area-inset-top) + 24px); }
         }
       }
+
+      /* ── Таблица тарифов в оферте ── */
+      .offer-table-wrap {
+        overflow-x: auto;
+        margin: 14px 0 20px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+      }
+
+      .offer-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .offer-table thead tr {
+        background: rgba(91, 58, 239, 0.15);
+      }
+
+      .offer-table th {
+        text-align: left;
+        padding: 12px 16px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text);
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+
+      .offer-table td {
+        padding: 11px 16px;
+        color: var(--muted);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        line-height: 1.5;
+        vertical-align: middle;
+      }
+
+      .offer-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .offer-table tbody tr:hover td {
+        background: rgba(255,255,255,0.03);
+      }
+
+      /* Первая колонка — название сервиса — чуть ярче */
+      .offer-table td:first-child {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* Стоимость — градиентный текст */
+      .offer-table td:last-child {
+        font-weight: 700;
+        white-space: nowrap;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      @media (max-width: 480px) {
+        .offer-table th,
+        .offer-table td {
+          padding: 10px 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -849,15 +918,57 @@
                 <h2>5. Стоимость услуг и оплата</h2>
                 <p class="clause">5.1. Стоимость услуг устанавливается Исполнителем и отображается Заказчику до момента оплаты.</p>
                 <p class="clause">5.2. Стоимость может быть фиксированной либо динамической.</p>
-                <p class="clause">5.3. Оплата осуществляется на условиях 100% предоплаты через сторонние платёжные сервисы (в том числе Tribute).</p>
-                <p class="clause">5.4. Исполнитель не хранит и не обрабатывает платёжные реквизиты Заказчика.</p>
-                <p class="clause">5.5. Обязанность по оплате считается исполненной с момента подтверждения платежа платёжным сервисом.</p>
+                <p class="clause">5.3. Оплата осуществляется на условиях 100% предоплаты через сторонние платёжные сервисы.</p>
+                <p class="clause">5.4. Актуальные тарифы на услуги "Сервис" ПрайзМи:</p>
+
+                <div class="offer-table-wrap">
+                  <table class="offer-table">
+                    <thead>
+                      <tr>
+                        <th>Сервис</th>
+                        <th>Период</th>
+                        <th>Стоимость</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">Включение в Топ&#8209;розыгрыши</td>
+                        <td>1 день (24 часа)</td>
+                        <td>149 руб.</td>
+                      </tr>
+                      <tr>
+                        <td>1 неделя</td>
+                        <td>499 руб.</td>
+                      </tr>
+                      <tr>
+                        <td>Продвижение розыгрыша в боте</td>
+                        <td>Бессрочно</td>
+                        <td>9 990 руб.</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">Задания для участников</td>
+                        <td>1 день (24 часа)</td>
+                        <td>349 руб.</td>
+                      </tr>
+                      <tr>
+                        <td>1 неделя</td>
+                        <td>990 руб.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p class="clause">5.5. Исполнитель не хранит и не обрабатывает платёжные реквизиты Заказчика.</p>
+                <p class="clause">5.6. Обязанность по оплате считается исполненной с момента подтверждения платежа платёжным сервисом.</p>
 
                 <h2>6. Возврат денежных средств</h2>
                 <p class="clause">6.1. Услуги Исполнителя являются цифровыми.</p>
                 <p class="clause">6.2. После начала оказания услуги (размещения, публикации, активации) денежные средства возврату не подлежат, за исключением случаев, прямо предусмотренных законодательством РФ.</p>
-                <p class="clause">6.3. В случае технической невозможности оказания услуги по вине Исполнителя возврат производится по заявлению Заказчика.</p>
-                <p class="clause">6.4. Обращения по возврату принимаются:</p>
+                <p class="clause">6.3. В случае технической невозможности оказания услуги по вине Исполнителя возврат производится по заявлению Заказчика, все претензии по возврату средств обрабатываются через контакты, указанные в п. 6.7.</p>
+                <p class="clause">6.4. Претензии принимаются в свободной форме с описанием причины возврата и указанием срока (даты и времени) проведения оплаты. К претензии необходимо приложить документы, подтверждающие факт оплаты (чек).</p>
+                <p class="clause">6.5. Срок рассмотрения претензии на возврат средств составляет не более 7 рабочих дней. После обработки претензии и утверждения возврата процедура перечисления средств составляет не более 3 месяцев с момента одобрения заявления.</p>
+                <p class="clause">6.6. Возврат средств осуществляется на ту же банковскую карту, с которой была произведена оплата. Срок перечисления зависит от банка, но обычно не превышает десяти календарных дней.</p>
+                <p class="clause">6.7. Обращения по возврату принимаются:</p>
                 <div class="contact-block">
                   Email: <a href="mailto:Semenov.NDwork@yandex.ru">Semenov.NDwork@yandex.ru</a><br>
                   Telegram: <a href="https://t.me/prizeme_support" target="_blank" rel="noopener">@prizeme_support</a>
